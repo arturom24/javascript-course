@@ -4,58 +4,52 @@
 
 let mySet = new Set()
 
-console.log(mySet)
+// inicializacion
 
-// agregar valores
-
-mySet.add('Hola')
-mySet.add(123)
-mySet.add(true)
-mySet.add({nombre: 'Juan', edad: 30})
-mySet.add([1, 2, 3])
-
-console.log(mySet)
-
-mySet.add(13) // no se agrega porque ya existe
+mySet = new Set(['luffy', 'sanji', 26, true, 'nami'])
 
 console.log(mySet)
 
 // metodos comunes
 
+// add y delete
+
+mySet.add('clasiformo')
+
+console.log(mySet)
+
+console.log(mySet.delete('nami'))
+
+if(mySet.delete('nami')) {
+    console.log('Eliminado')
+} else {
+    console.log('No se encuentra en la lista')
+}
+
+console.log(mySet)
+
+// has
+
+console.log(mySet.has('luffy'))
+console.log(mySet.has('brook'))
+
 // size
 
 console.log(mySet.size)
 
-// has
-
-console.log(mySet.has(2))
-console.log(mySet.has(5))
-
-// delete
-
-// mySet.delete(2)
-// console.log(mySet)
-
-// clear
-
-// mySet.clear()
-// console.log(mySet)
-
-// recorrer un set
-
-// mySet.forEach(function(value) {
-//     console.log(value)
-// })
-
-// for (let value of mySet) {
-//     console.log(value)
-// }
 
 // convertir un set a array
 
-// const myArray = Array.from(mySet)
-// console.log(myArray)
+let myArray = Array.from(mySet)
 
-// const myArray2 = [...mySet]
-// console.log(myArray2)
-//     console.log(`El mes de ${mes} tiene ${dias} días`)
+console.log(myArray)
+
+mySet = new Set(myArray)
+
+console.log(mySet)
+
+// los set no admiten duplicados
+
+mySet.add('luffy')
+
+console.log(mySet)
