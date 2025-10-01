@@ -18,15 +18,16 @@ console.log(numerosPares)
 let sumaTotal = numerosPares.reduce((acumulador, valorInicial) => acumulador + valorInicial)
 console.log(sumaTotal)
 
-
-
-
-
-
-
-
-
 // 2. Dado un array de números, crea uno nuevo con dichos números elevados al cubo y filtra sólo los números pares
+
+let num2 = numeroAleatorioHasta(10)
+function cubo(num) {
+    return num * num * num
+}
+console.log(num2)
+let listaAlCuboPares = num2.map(element => cubo(element)).filter(element => element % 2 === 0 && element !== 0)
+console.log(listaAlCuboPares)
+
 
 // 3. Utiliza flat y flatMap para crear un ejemplo diferente al de la lección
 
