@@ -33,13 +33,37 @@ console.log(listaAlCuboPares)
 
 // 4. Ordena un array de números de mayor a menor
 
+let num3 = numeroAleatorioHasta(20)
+console.log(num3)
+const listaOrdenada = num3.sort((a, b) => a - b)
+console.log(`Lista ordenada: ${num3}`)
+
 // 5. Dados dos sets, encuentra la unión, intersección y diferencia de ellos
 
 // 6. Itera los resultados del ejercicio anterior
 
 // 7. Crea un mapa que almacene información se usuarios (nombre, edad y email) e itera los datos
 
+const user = new Map([
+    ['name', 'artur'],
+    ['age', 26],
+    ['email', 'arturo@gmail.com']
+])
+
+user.forEach((value, key) => console.log(`${key}: ${value}`))
+
+const users = new Map([
+    [1, {name: 'arturo', age: 26, email: 'arturo@gmail.com'}],
+    [2, {name: 'pedro', age: 23, email: 'pedro@gmail.com'}],
+    [3, {name: 'jose', age: 30, email: 'jose@gmail.com'}],
+])
+
+users.forEach((user, id) => console.log(`${id} - ${user.name}, ${user.age}, ${user.email}`))
+
 // 8. Dado el mapa anterior, crea un array con los nombres
+
+const nombres = Array.from(users.values()).map(user => user.name)
+console.log(nombres)
 
 // 9. Dado el mapa anterior, obtén un array con los email de los usuarios mayores de edad y transfórmalo a un set
 
