@@ -31,6 +31,23 @@ console.log(listaAlCuboPares)
 
 // 3. Utiliza flat y flatMap para crear un ejemplo diferente al de la lección
 
+let productosPorCategiria = [
+    ["martillo", "destornillador"],
+    ["taladro", "sierra"],
+    ["cable", "enchufe"]
+]
+let todosLosProductos = productosPorCategiria.flat()
+console.log(todosLosProductos)
+
+let frases = [
+    'Hola mundo',
+    'aprendiendo a programar',
+    'esto es un flatMap'
+]
+
+let palabras = frases.flatMap(frase => frase.split(' '))
+console.log(palabras)
+
 // 4. Ordena un array de números de mayor a menor
 
 let num3 = numeroAleatorioHasta(20)
@@ -39,6 +56,21 @@ const listaOrdenada = num3.sort((a, b) => a - b)
 console.log(`Lista ordenada: ${num3}`)
 
 // 5. Dados dos sets, encuentra la unión, intersección y diferencia de ellos
+
+const setA = new Set([1,2,3,4])
+const setB = new Set([3,4,5,6])
+
+// union
+const setAB = new Set([...setA, ...setB])
+console.log('Union', setAB)
+
+// interseccion (Elementos comunes)
+const interseccion = new Set([...setA].filter(element => setB.has(element)))
+console.log('Interseccion: ', interseccion )
+
+// diferencia
+const diferencia = new Set([...setA].filter(element => !setB.has(element)))
+console.log('Diferencia: ', diferencia )
 
 // 6. Itera los resultados del ejercicio anterior
 
@@ -55,7 +87,11 @@ user.forEach((value, key) => console.log(`${key}: ${value}`))
 const users = new Map([
     [1, {name: 'arturo', age: 26, email: 'arturo@gmail.com'}],
     [2, {name: 'pedro', age: 23, email: 'pedro@gmail.com'}],
-    [3, {name: 'jose', age: 30, email: 'jose@gmail.com'}],
+    [3, {name: 'jose', age: 17, email: 'jose@gmail.com'}],
+    [4, {name: 'antonio', age: 17, email: 'antonio@gmail.com'}],
+    [5, {name: 'antonio', age: 19, email: 'antonio@gmail.com'}],
+    [6, {name: 'lucas', age: 30, email: 'lucas@gmail.com'}],
+    [7, {name: 'mauro', age: 41, email: 'mauro@gmail.com'}]
 ])
 
 users.forEach((user, id) => console.log(`${id} - ${user.name}, ${user.age}, ${user.email}`))
@@ -67,4 +103,26 @@ console.log(nombres)
 
 // 9. Dado el mapa anterior, obtén un array con los email de los usuarios mayores de edad y transfórmalo a un set
 
+const emailsMayorDeEdad = new Set(
+    Array.from(users.values())
+    .filter(user => user.age > 18)
+    .map(user => user.email)
+) 
+console.log(emailsMayorDeEdad)
+
 // 10. Transforma el mapa en un objeto, a continuación, transforma el objeto en un mapa con clave el email de cada usuario y como valor todos los datos del usuario
+
+const objetoUsuarios = Object.fromEntries(users)
+console.log(objetoUsuarios)
+
+const mapaUsuarios = new Map();
+
+for(const user of Object.values(objetoUsuarios)) {
+    if (!mapaUsuarios.has(user.email)) {
+        mapaUsuarios.set(user.email, [user])
+    } else {
+        mapaUsuarios.get(user.email).push(user)
+    }
+}
+
+console.log(mapaUsuarios)
